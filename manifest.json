@@ -1,8 +1,10 @@
 {
 	"id": "meld-encrypt-modified",
 	"name": "Meld Encrypt Modified",
-	"version": "2.3.6",
-	"minAppVersion": "1.0.3",
+	"version": "1.0.0",
+	"minAppVersion": "1.0.0",
+	"originalVersion": "2.3.6",
+	"originalMinAppVersion": "1.0.3",
 	"description": "Hide secrets in your vault",
 	"originalAuthor": "meld-cp",
 	"author": "02danieljonas",
