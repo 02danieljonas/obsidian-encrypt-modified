@@ -10,7 +10,7 @@ if you want to view the source, please visit the github repository of this plugi
 */
 `;
 
-const outputDir = ".."
+const outputDir = "."
 
 const prod = (process.argv[2] === 'production');
 
@@ -47,10 +47,6 @@ esbuild.build({
 		copyStaticFiles({
 			src: './src/styles.css',
 			dest: prod ? `${outputDir}/styles.css` : './test-vault/.obsidian/plugins/meld-encrypt/styles.css',
-		}),
-		copyStaticFiles({
-			src: './manifest.json',
-			dest: prod ? `${outputDir}/manifest.json` : './test-vault/.obsidian/plugins/meld-encrypt/manifest.json',
 		}),
 	]
 }).catch(() => process.exit(1));
