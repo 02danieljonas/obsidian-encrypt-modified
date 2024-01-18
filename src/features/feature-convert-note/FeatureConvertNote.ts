@@ -12,9 +12,11 @@ import { ENCRYPTED_FILE_EXTENSIONS, ENCRYPTED_FILE_EXTENSION_DEFAULT } from "src
 export default class FeatureConvertNote implements IMeldEncryptPluginFeature {
 	
 	plugin: MeldEncrypt;
+	pluginSettings: IMeldEncryptPluginSettings;
 	
 	async onload(plugin: MeldEncrypt, settings: IMeldEncryptPluginSettings) {
 		this.plugin = plugin;
+		this.pluginSettings = settings;
 
 		this.plugin.addCommand({
 			id: 'meld-encrypt-convert-to-or-from-encrypted-note',
@@ -124,8 +126,8 @@ export default class FeatureConvertNote implements IMeldEncryptPluginFeature {
 		}
 
 		const defaultPw = SessionPasswordService.getByFile( file );
-		
-		const pm = new PluginPasswordModal( this.plugin.app, 'Encrypt Note', true, true, defaultPw );
+
+		const pm = new PluginPasswordModal( this.plugin.app, 'Encrypt Note', true, true, defaultPw, this.pluginSettings.singlePassword, this.pluginSettings.encryptedString );
 		try{
 			const pw = await pm.openAsync();
 
@@ -168,7 +170,7 @@ export default class FeatureConvertNote implements IMeldEncryptPluginFeature {
 		const encryptedData = JsonFileEncoding.decode( encryptedFileContent );
 
 
-		const pwm = new PluginPasswordModal(this.plugin.app, 'Decrypt Note', false, false, { password: '', hint: encryptedData.hint } );
+		const pwm = new PluginPasswordModal(this.plugin.app, 'Decrypt Note', false, false, { password: '', hint: encryptedData.hint }, this.pluginSettings.singlePassword, "");
 		try{
 			passwordAndHint = await pwm.openAsync();
 			

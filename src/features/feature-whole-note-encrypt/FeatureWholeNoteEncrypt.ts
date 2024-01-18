@@ -10,11 +10,13 @@ import { ENCRYPTED_FILE_EXTENSIONS, ENCRYPTED_FILE_EXTENSION_DEFAULT } from "src
 export default class FeatureWholeNoteEncrypt implements IMeldEncryptPluginFeature {
 
 	plugin:MeldEncrypt;
+	pluginSettings: IMeldEncryptPluginSettings;
 	settings: IFeatureWholeNoteEncryptSettings;
 
 	async onload( plugin: MeldEncrypt, settings:IMeldEncryptPluginSettings ) {
 		this.plugin = plugin;
 		this.settings = settings.featureWholeNoteEncrypt;
+		this.pluginSettings = settings;
 		
 		this.plugin.addRibbonIcon( 'file-lock-2', 'New encrypted note', (ev)=>{
 			this.processCreateNewEncryptedNoteCommand( this.getDefaultFileFolder() );
@@ -22,7 +24,7 @@ export default class FeatureWholeNoteEncrypt implements IMeldEncryptPluginFeatur
 
 		this.plugin.registerView(
 			VIEW_TYPE_ENCRYPTED_FILE_CONTENT,
-			(leaf) => new EncryptedFileContentView(leaf, this.settings )
+			(leaf) => new EncryptedFileContentView(leaf, this.settings, this.pluginSettings.singlePassword, this.pluginSettings.encryptedString )
 		);
 			
 		this.plugin.registerExtensions(

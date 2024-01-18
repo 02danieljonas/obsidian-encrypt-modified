@@ -155,4 +155,6 @@ export class CryptoHelper2304 implements ICryptoHelper {
 		}
 	}
 
+	public async useSinglePassword(){}
+
 }

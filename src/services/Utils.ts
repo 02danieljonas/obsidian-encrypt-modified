@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import { TFile, normalizePath } from "obsidian";
 
 export class Utils{

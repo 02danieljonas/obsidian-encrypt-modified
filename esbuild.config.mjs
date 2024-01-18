@@ -10,6 +10,8 @@ if you want to view the source, please visit the github repository of this plugi
 */
 `;
 
+const outputDir = ".."
+
 const prod = (process.argv[2] === 'production');
 
 esbuild.build({
@@ -40,15 +42,15 @@ esbuild.build({
 	sourcemap: prod ? false : 'inline',
 	treeShaking: true,
 	minify: prod,
-	outfile: prod ? './dist/main.js' : './test-vault/.obsidian/plugins/meld-encrypt/main.js',
+	outfile: prod ? `${outputDir}/main.js` : './test-vault/.obsidian/plugins/meld-encrypt/main.js',
 	plugins:[
 		copyStaticFiles({
 			src: './src/styles.css',
-			dest: prod ? './dist/styles.css' : './test-vault/.obsidian/plugins/meld-encrypt/styles.css',
+			dest: prod ? `${outputDir}/styles.css` : './test-vault/.obsidian/plugins/meld-encrypt/styles.css',
 		}),
 		copyStaticFiles({
 			src: './manifest.json',
-			dest: prod ? './dist/manifest.json' : './test-vault/.obsidian/plugins/meld-encrypt/manifest.json',
+			dest: prod ? `${outputDir}/manifest.json` : './test-vault/.obsidian/plugins/meld-encrypt/manifest.json',
 		}),
 	]
 }).catch(() => process.exit(1));

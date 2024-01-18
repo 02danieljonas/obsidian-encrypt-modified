@@ -180,6 +180,8 @@ export default class FeatureInplaceEncrypt implements IMeldEncryptPluginFeature{
 				/*isEncrypting*/ false,
 				/*confirmPassword*/ false,
 				/*defaultShowInReadingView*/ this.featureSettings.showMarkerWhenReadingDefault,
+				this.pluginSettings.singlePassword,
+				this.pluginSettings.encryptedString,
 				'',
 				hint
 			);
@@ -341,6 +343,8 @@ export default class FeatureInplaceEncrypt implements IMeldEncryptPluginFeature{
 			true,
 			confirmPassword,
 			/*defaultShowInReadingView*/ this.featureSettings.showMarkerWhenReadingDefault,
+			this.pluginSettings.singlePassword,
+			this.pluginSettings.encryptedString,
 			defaultPassword,
 			defaultHint,
 			/*showTextToEncrypt*/ true
@@ -490,6 +494,8 @@ export default class FeatureInplaceEncrypt implements IMeldEncryptPluginFeature{
 			selectionAnalysis.canEncrypt,
 			confirmPassword,
 			/*defaultShowInReadingView*/ this.featureSettings.showMarkerWhenReadingDefault,
+			this.pluginSettings.singlePassword,
+			this.pluginSettings.encryptedString,
 			defaultPassword,
 			defaultHint
 		);
@@ -552,6 +558,9 @@ export default class FeatureInplaceEncrypt implements IMeldEncryptPluginFeature{
 	) {
 		//encrypt
 		const crypto = CryptoHelperFactory.BuildDefault();
+
+		
+
 		const encodedText = this.encodeEncryption(
 			await crypto.encryptToBase64(encryptable.text, password),
 			encryptable.hint,

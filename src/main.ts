@@ -53,6 +53,9 @@ export default class MeldEncrypt extends Plugin {
 		const DEFAULT_SETTINGS: IMeldEncryptPluginSettings = {
 			confirmPassword: true,
 			rememberPassword: true,
+			singlePassword: false,
+			defaultHint: "",
+			encryptedString: "",
 			rememberPasswordTimeout: 30,
 			rememberPasswordLevel: SessionPasswordService.LevelFilename,
 

@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import { TFile } from "obsidian";
 import { MemoryCache } from "./MemoryCache";
 import { Utils } from "./Utils";

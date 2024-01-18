@@ -4,9 +4,11 @@ import { IFeatureWholeNoteEncryptSettings } from "../features/feature-whole-note
 export interface IMeldEncryptPluginSettings {
 	confirmPassword: boolean;
 	rememberPassword: boolean;
+	singlePassword: boolean;
+	defaultHint: string;
+	encryptedString: string;
 	rememberPasswordTimeout: number;
 	rememberPasswordLevel: string;
-
 	featureWholeNoteEncrypt : IFeatureWholeNoteEncryptSettings;
 	featureInplaceEncrypt : IFeatureInplaceEncryptSettings;
 }
