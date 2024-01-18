@@ -1,11 +1,13 @@
 {
-	"id": "meld-encrypt",
-	"name": "Meld Encrypt",
+	"id": "meld-encrypt-modified",
+	"name": "Meld Encrypt Modified",
 	"version": "2.3.6",
 	"minAppVersion": "1.0.3",
 	"description": "Hide secrets in your vault",
-	"author": "meld-cp",
-	"authorUrl": "https://github.com/meld-cp/obsidian-encrypt",
+	"originalAuthor": "meld-cp",
+	"author": "02danieljonas",
+	"authorUrl": "https://github.com/02danieljonas/obsidian-encrypt-modified",
+	"originalAuthorUrl": "https://github.com/meld-cp/obsidian-encrypt",
 	"isDesktopOnly": false,
 	"fundingUrl": {
 		"Buy Me a Coffee": "https://www.buymeacoffee.com/cleon",
