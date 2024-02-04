@@ -182,7 +182,9 @@ export class EncryptedFileContentView extends TextFileView {
             console.debug(
                 "1. This password does not match the default password."
             );
-            new Notice("This password does not match the default password.");
+
+            new Notice("This password does not match the default password.", 1);
+
             return "This password does not match the default password.";
         }
         // if ( pw.length == 0 ){
